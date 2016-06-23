@@ -25,6 +25,7 @@ public class LocationsAdapter extends ArrayAdapter<Location> {
     public LocationsAdapter(Context context, ArrayList<Location> locations) {
         super(context, 0, locations);
         this.mContext = context;
+
     }
 
     @Override

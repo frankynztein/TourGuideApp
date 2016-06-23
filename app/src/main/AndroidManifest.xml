@@ -11,7 +11,7 @@
         <activity
             android:launchMode="singleInstance"
             android:name=".TourGuide"
-            android:label="@string/activity_title_attractions"
+            android:label="@string/fragment_title_attractions"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

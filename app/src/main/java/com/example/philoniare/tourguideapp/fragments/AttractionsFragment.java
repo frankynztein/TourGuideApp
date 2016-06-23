@@ -2,6 +2,8 @@ package com.example.philoniare.tourguideapp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,11 @@ public class AttractionsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_attractions, container, false);
         ButterKnife.bind(this, view);
 
+        // Set Title
+        ActionBar mainBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (mainBar != null) {
+            mainBar.setTitle(getString(R.string.fragment_title_attractions));
+        }
 
         // Seed the app with attractions data
         attractions = new ArrayList<>();
@@ -36,7 +43,7 @@ public class AttractionsFragment extends Fragment {
         attractions.add(new Location("Mountain View Farmers Market", "https://media-cdn.tripadvisor.com/media/photo-s/02/d8/13/8e/mountain-view-farmers.jpg"));
         attractions.add(new Location("NASA Ames Visitor Center", "https://media-cdn.tripadvisor.com/media/photo-s/02/57/1a/8c/model-of-atlantis.jpg"));
         attractions.add(new Location("Shoreline Amphitheatre", "https://media-cdn.tripadvisor.com/media/photo-s/04/2a/26/05/shoreline-amphitheatre.jpg"));
-        attractions.add(new Location("Moffett Field Historical Society Museum", "hhttps://media-cdn.tripadvisor.com/media/photo-s/04/76/6a/77/moffett-field-historical.jpg"));
+        attractions.add(new Location("Moffett Field Historical Society Museum", "https://media-cdn.tripadvisor.com/media/photo-s/04/76/6a/77/moffett-field-historical.jpg"));
 
         // Connect the adapter with the dataset
         LocationsAdapter attractionsAdapter = new LocationsAdapter(this.getContext(), attractions);

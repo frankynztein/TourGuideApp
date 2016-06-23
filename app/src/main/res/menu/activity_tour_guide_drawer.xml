@@ -5,18 +5,18 @@
         <item
             android:id="@+id/nav_attractions"
             android:icon="@drawable/ic_place_black_36dp"
-            android:title="@string/activity_title_attractions" />
+            android:title="@string/fragment_title_attractions" />
         <item
             android:id="@+id/nav_startups"
             android:icon="@drawable/ic_domain_black_36dp"
-            android:title="@string/activity_title_startups" />
+            android:title="@string/fragment_title_startups" />
         <item
             android:id="@+id/nav_parks"
             android:icon="@drawable/ic_map_black_36dp"
-            android:title="@string/activity_title_parks" />
+            android:title="@string/fragment_title_parks" />
         <item
             android:id="@+id/nav_restaurants"
             android:icon="@drawable/ic_free_breakfast_black_36dp"
-            android:title="@string/activity_title_restaurants" />
+            android:title="@string/fragment_title_restaurants" />
     </group>
 </menu>

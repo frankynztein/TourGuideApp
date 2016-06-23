@@ -3,12 +3,12 @@ package com.example.philoniare.tourguideapp;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -17,7 +17,7 @@ import com.example.philoniare.tourguideapp.fragments.ParksFragment;
 import com.example.philoniare.tourguideapp.fragments.RestaurantsFragment;
 import com.example.philoniare.tourguideapp.fragments.StartupsFragment;
 
-public class TourGuide extends FragmentActivity
+public class TourGuide extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -25,7 +25,7 @@ public class TourGuide extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_guide);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
