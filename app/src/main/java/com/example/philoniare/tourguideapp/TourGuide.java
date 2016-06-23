@@ -1,19 +1,19 @@
 package com.example.philoniare.tourguideapp;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class TourGuide extends AppCompatActivity
+public class TourGuide extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -21,7 +21,7 @@ public class TourGuide extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_guide);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,7 +37,7 @@ public class TourGuide extends AppCompatActivity
     }
 
     public void startFragment(String fragTag) {
-        FragmentManager fManager = getFragmentManager();
+        FragmentManager fManager = getSupportFragmentManager();
         FragmentTransaction fTransaction = fManager.beginTransaction();
         Fragment fragment = fManager.findFragmentByTag(fragTag);
 
@@ -57,10 +57,10 @@ public class TourGuide extends AppCompatActivity
                     fTransaction.add(R.id.main_fragment_container, new RestaurantsFragment(), fragTag);
                     break;
             }
-
-
+            fTransaction.commit();
         }
-        else { // re-use the old fragment
+        else {
+            // re-use the old fragment, keeping only a single instance of each fragment
             fTransaction.replace(R.id.main_fragment_container, fragment, fragTag);
         }
     }
@@ -81,16 +81,14 @@ public class TourGuide extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_attractions) {
-
+            startFragment("attractionsFrag");
         } else if (id == R.id.nav_startups) {
-
+            startFragment("startupsFrag");
         } else if (id == R.id.nav_parks) {
-
+            startFragment("parksFrag");
         } else {
-
+            startFragment("restaurantsFrag");
         }
-        // check if it is the current activity
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
