@@ -1,6 +1,5 @@
 package com.example.philoniare.tourguideapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -45,41 +44,30 @@ public class TourGuide extends FragmentActivity
         if (fragment == null) {
             switch(fragTag) {
                 case "attractionsFrag":
-                    fTransaction.add(R.id.main_fragment_container, new AttractionsFragment(), fragTag);
+                    fTransaction.replace(R.id.main_fragment_container, new AttractionsFragment(), fragTag);
                     break;
                 case "parksFrag":
-                    fTransaction.add(R.id.main_fragment_container, new ParksFragment(), fragTag);
+                    fTransaction.replace(R.id.main_fragment_container, new ParksFragment(), fragTag);
                     break;
                 case "startupsFrag":
-                    fTransaction.add(R.id.main_fragment_container, new StartupsFragment(), fragTag);
+                    fTransaction.replace(R.id.main_fragment_container, new StartupsFragment(), fragTag);
                     break;
                 case "restaurantsFrag":
-                    fTransaction.add(R.id.main_fragment_container, new RestaurantsFragment(), fragTag);
+                    fTransaction.replace(R.id.main_fragment_container, new RestaurantsFragment(), fragTag);
                     break;
             }
-            fTransaction.commit();
         }
         else {
             // re-use the old fragment, keeping only a single instance of each fragment
             fTransaction.replace(R.id.main_fragment_container, fragment, fragTag);
         }
-    }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        fTransaction.commit();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        Intent navIntent;
         int id = item.getItemId();
-
         if (id == R.id.nav_attractions) {
             startFragment("attractionsFrag");
         } else if (id == R.id.nav_startups) {
