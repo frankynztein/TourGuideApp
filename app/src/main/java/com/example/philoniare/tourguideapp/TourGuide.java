@@ -12,6 +12,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.philoniare.tourguideapp.fragments.AttractionsFragment;
+import com.example.philoniare.tourguideapp.fragments.ParksFragment;
+import com.example.philoniare.tourguideapp.fragments.RestaurantsFragment;
+import com.example.philoniare.tourguideapp.fragments.StartupsFragment;
+
 public class TourGuide extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

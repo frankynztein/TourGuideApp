@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height">
+    <ImageView
+        android:id="@+id/location_image"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/list_item_image_width"
+        android:layout_height="match_parent" />
+
+    <TextView
+        tools:text="Image"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/list_item_name_padding_left"
+        android:id="@+id/location_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
